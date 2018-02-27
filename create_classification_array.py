@@ -1,4 +1,4 @@
-
+from decimal import Decimal
 
 
 def create_classification_array(filename,classifications):
@@ -47,3 +47,13 @@ def check_range_time(frame_time,classifications):
             break
     
     return result
+
+
+def average_values(values,count):
+    if count != Decimal(0):
+        average_values = [x / count for x in values[:-2]]
+        average_values.append(values[165]) #video_name
+        average_values.append(values[166]) #class
+
+        return average_values;
+    return values
